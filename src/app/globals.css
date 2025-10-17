@@ -45,7 +45,7 @@
 
 :root {
   --radius: 0.625rem;
-  --background: linear-gradient(to bottom, #F8FAFF, #F2F6FF, #E9EFFA);
+  --background: linear-gradient(to bottom, #f8faff, #f2f6ff, #e9effa);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -79,7 +79,7 @@
 }
 
 .dark {
-  --background: linear-gradient(to bottom, #0A0D12, #0D1220, #101827);
+  --background: linear-gradient(to bottom, #0a0d12, #0d1220, #101827);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
