@@ -1,20 +1,20 @@
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import SectionWrapper from "@/wrapper/SectionWrapper";
+import SectionWrapper from "@/wrapper/section-wrapper";
 
 const mainTech = ["React", "TypeScript", "Next.js", "Tailwind CSS"];
 
 const Hero = () => {
   return (
     <>
-      <h1 className="text-6xl font-bold">
+      <h1 className="text-5xl sm:text-6xl font-bold">
         Hi, I'm{" "}
         <span className="bg-gradient-to-b from-[#000000] to-[#00DDFF] bg-clip-text text-transparent">
           Puli
         </span>
       </h1>
-      <p className="text-5xl mb-6">Frontend developer</p>
-      <div className="flex gap-6 mb-16">
+      <h2 className="text-3xl sm:text-5xl mb-6">Frontend developer</h2>
+      <div className="flex gap-3 sm:gap-6 mb-16">
         {mainTech.map((tech) => (
           <Badge key={tech} variant="tech">
             {tech}

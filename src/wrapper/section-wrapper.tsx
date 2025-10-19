@@ -11,7 +11,7 @@ const SectionWrapper = (
     return (
       <section
         id={id}
-        className="relative flex flex-col justify-center items-center h-[calc(100vh-3rem)] text-center pb-16"
+        className="relative flex flex-col justify-center items-center min-h-screen text-center"
       >
         <Component />
         {nextId && (

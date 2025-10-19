@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import Nav from "@/components/Nav";
-import MotionWrap from "@/wrapper/MotionWrapper";
+import MotionWrapper from "@/wrapper/motion-wrapper";
+import Nav from "@/components/nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Nav />
-          <MotionWrap>{children}</MotionWrap>
+          <MotionWrapper>{children}</MotionWrapper>
         </ThemeProvider>
       </body>
     </html>
