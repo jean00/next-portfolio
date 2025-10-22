@@ -1,3 +1,5 @@
+"use client";
+
 import SectionWrapper from "@/wrapper/section-wrapper";
 import {
   Card,
