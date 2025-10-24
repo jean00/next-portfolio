@@ -11,6 +11,14 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Badge } from "./ui/badge";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+  CarouselDots,
+} from "./ui/carousel";
 
 const experiences = [
   {
@@ -53,10 +61,11 @@ const experiences = [
 const WorkExperience = () => {
   return (
     <>
-      <h2 className="text-3xl font-bold text-center mb-10">
-        My Work experiences 🚀
+      <h2 className="text-4xl font-bold text-center mb-10">
+        My Work experiences
       </h2>
-      <div className="flex space-x-10 min-w-max">
+      {/* Desktop */}
+      <div className="hidden lg:flex space-x-10 min-w-max">
         {experiences.map((exp) => (
           <Card
             key={exp.company}
@@ -81,6 +90,39 @@ const WorkExperience = () => {
           </Card>
         ))}
       </div>
+      {/* Mobile */}
+      <Carousel className="lg:hidden w-full max-w-3xl mx-auto">
+        <CarouselContent>
+          {experiences.map((exp) => (
+            <CarouselItem key={exp.company} className="flex justify-center">
+              <Card
+                key={exp.company}
+                className="border-0 w-72 bg-white dark:bg-gray-900"
+              >
+                <CardHeader>
+                  <CardTitle className="flex justify-center">
+                    {exp.icon}
+                  </CardTitle>
+                  <CardDescription>
+                    {exp.company} — {exp.period}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="text-primary-text text-sm">
+                  {exp.description}
+                </CardContent>
+                <CardFooter className="mt-auto flex flex-wrap justify-center gap-2">
+                  {exp.tech.map((t) => (
+                    <Badge key={t} variant="tech">
+                      {t}
+                    </Badge>
+                  ))}
+                </CardFooter>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselDots className="bottom-[-1.125rem]" />
+      </Carousel>
     </>
   );
 };

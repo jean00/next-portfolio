@@ -15,93 +15,60 @@ import { motion } from "motion/react";
 import Image from "next/image";
 
 const techs = [
-  <ReactIcon key="react" />,
-  <TypescriptIcon key="ts" />,
-  <HtmlIcon key="html" />,
-  <CssIcon key="css" />,
-  <JavascriptIcon key="js" />,
-  <ReduxIcon key="redux" />,
+  <ReactIcon key="react" className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />,
+  <TypescriptIcon
+    key="ts"
+    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+  />,
+  <HtmlIcon key="html" className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />,
+  <CssIcon key="css" className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />,
+  <JavascriptIcon
+    key="js"
+    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+  />,
+  <ReduxIcon key="redux" className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />,
 ];
 
 const About = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
-    >
+    <>
       <h2 className="text-4xl font-bold mb-4">
         About{" "}
         <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
           Me
         </span>
       </h2>
-      <h2 className="text-lg lg:text-2xl mb-4 lg:mb-12">
-        I build front-ends with performance and accessibility in mind.
+      <h2 className="text-lg lg:text-2xl mb-2 lg:mb-12">
+        I build front-ends with <strong>performance</strong> and{" "}
+        <strong>accessibility</strong> in mind.
+        <br />
       </h2>
-      <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Image
-            src={Avatar}
-            alt="Jean portrait"
-            width={600}
-            height={600}
-            className="rounded-3xl shadow-2xl hover:scale-105 transition"
-          />
-        </motion.div>
+      <div className="flex flex-col lg:flex-row gap-8 md:gap-16 h-[400px]">
+        <Image
+          src={Avatar}
+          alt="Jean portrait"
+          className="hidden lg:block rounded-3xl shadow-2xl hover:scale-105 transition w-48 sm:w-56 md:w-72 lg:w-[400px] h-auto"
+          priority
+        />
 
-        <div className="text-center md:text-left">
-          <p className="text-gray-400 leading-relaxed mb-6">
-            I build front-ends with <strong>performance</strong> and{" "}
-            <strong>accessibility</strong> in mind.
-            <br />
+        <div className="flex flex-col lg:justify-between h-full text-center lg:text-left">
+          <p className="text-xl text-gray-400 leading-relaxed mb-6">
             Front-End Developer with 3+ years of experience using React and
             TypeScript. Passionate about clean, maintainable UI and micro
             front-end architectures. Based in Milan, Italy 🇮🇹.
           </p>
-
-          <h3 className="text-xl font-semibold mb-3">My Tech Stack</h3>
-          <div className="flex flex-wrap justify-center md:justify-start gap-6">
-            {techs.map((icon) => icon)}
+          <div>
+            <h2 className="text-lg font-bold mb-4">My tech stack</h2>
+            <div className="flex flex-wrap justify-center md:justify-start gap-10 mb-4">
+              {techs.map((icon) => icon)}
+            </div>
           </div>
+          <p className="text-xs text-center w-full">
+            ... and more on my resume
+          </p>
         </div>
-        {/* Tablet */}
-        <div className="hidden sm:block lg:hidden text-left w-full mt-4">
-          <h3 className="text-xl mb-8 font-bold">My tech stack</h3>
-          <div className="flex justify-between text-right">
-            {techs.map((icon) => icon)}
-          </div>
-        </div>
-
-        {/* Mobile */}
-        <div className="block sm:hidden relative w-full overflow-hidden py-6">
-          <motion.div
-            className="flex gap-8"
-            animate={{ x: ["0%", "-100%"] }}
-            transition={{
-              repeat: Infinity,
-              duration: 18,
-              ease: "linear",
-            }}
-          >
-            {[...techs, ...techs].map((icon, i) => (
-              <div key={i}>{icon}</div>
-            ))}
-          </motion.div>
-
-          {/* Optional gradient mask for edges */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
-        </div>
-
-        {/* <p className="mt-12 text-xs text-right w-full">
-          ... and more on my resume
-        </p> */}
       </div>
-    </motion.div>
+    </>
   );
 };
 

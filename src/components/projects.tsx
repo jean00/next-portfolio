@@ -22,7 +22,7 @@ const Projects = () => {
   return (
     <>
       <h1 className="text-5xl lg:text-6xl font-bold mb-4">My projects</h1>
-      <Carousel className="w-full max-w-3xl mx-auto">
+      {/* <Carousel className="w-full max-w-3xl mx-auto">
         <CarouselContent>
           {projects.map((project) => (
             <CarouselItem key={project.key}>
@@ -48,7 +48,7 @@ const Projects = () => {
         </CarouselContent>
         <CarouselPrevious />
         <CarouselNext />
-      </Carousel>
+      </Carousel> */}
     </>
   );
 };
