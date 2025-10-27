@@ -36,7 +36,7 @@ const experiences = [
     company: "Business Changers",
     period: "2022 – 2023",
     description:
-      "Front-end development for SiAge, the Lombardy Region’s tender management platform. Built dynamic forms and interactive logic using JavaScript, developed SQL queries for data extraction, and generated PDF files from XML via XSL:FO. Contributed to platform testing, bug fixing, and feature optimization",
+      "Developed and optimized dynamic forms and interactive logic for SiAge, the Lombardy Region’s tender management platform. Built SQL queries for data extraction, generated PDFs from XML with XSL:FO, and contributed to testing, bug fixing, and feature improvements.",
     tech: ["JavaScript", "XML", "XSL:FO", "SQL"],
   },
   {
@@ -61,8 +61,11 @@ const experiences = [
 const WorkExperience = () => {
   return (
     <>
-      <h2 className="text-4xl font-bold text-center mb-10">
-        My Work experiences
+      <h2 className="text-4xl font-bold text-center mb-4 md:mb-10">
+        My Work{" "}
+        <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          Experiences
+        </span>
       </h2>
       {/* Desktop */}
       <div className="hidden lg:flex space-x-10 min-w-max">
