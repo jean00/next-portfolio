@@ -10,7 +10,10 @@ const Hero = () => {
   return (
     <>
       <h1 className="text-5xl sm:text-6xl font-bold">
-        Hi, I&apos;m <span className="bg-gradient-to-b from-[#000000] to-[#00DDFF] bg-clip-text text-transparent">Jean</span>
+        Hi, I'm{" "}
+        <span className="bg-gradient-to-b from-[#000000] to-[#00DDFF] bg-clip-text text-transparent">
+          Puli
+        </span>
       </h1>
       <h2 className="text-3xl sm:text-5xl mb-6">Frontend developer</h2>
       <div className="flex gap-3 sm:gap-6 mb-16">
@@ -25,4 +28,4 @@ const Hero = () => {
   );
 };
 
-export default SectionWrapper(Hero, "home", "about");
+export default SectionWrapper(Hero, "hero", "about");
