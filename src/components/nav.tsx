@@ -6,7 +6,7 @@ import { Moon, Sun } from "lucide-react";
 import MobileMenu from "./mobile-menu";
 
 const navLinks = [
-  { name: "Home", href: "#" },
+  { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   {
     name: "Experiences",

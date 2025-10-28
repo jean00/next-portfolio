@@ -12,15 +12,11 @@ const Contacts = () => {
   return (
     <>
       <h2 className="text-4xl font-bold mb-4">
-        Let's{" "}
-        <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-          Connect
-        </span>
+        Let&apos;s <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Connect</span>
       </h2>
       <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 mb-10">
-        I’m always open to new opportunities, collaborations, or just a chat
-        about frontend, design systems, or creative coding. Drop me a message or
-        find me on one of my social channels below
+        I&apos;m always open to new opportunities, collaborations, or just a chat about frontend, design systems, or creative
+        coding. Drop me a message or find me on one of my social channels below
       </p>
       <form className="flex flex-col gap-4 w-full max-w-md bg-white dark:bg-slate-950 p-8 rounded-2xl shadow-md mb-6">
         <FieldGroup>

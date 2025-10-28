@@ -16,14 +16,12 @@ const SectionWrapper = (Component: () => JSX.Element, id: string, nextId?: strin
           className="relative flex flex-col justify-center items-center min-h-screen text-center"
         >
           <Component />
-
           {nextId && (
             <a href={`#${nextId}`} className="absolute bottom-2 lg:bottom-10 animate-bounce">
               <ChevronDown size={64} />
             </a>
           )}
         </motion.section>
-        <NavigationDots id={id} />
       </>
     );
   };
