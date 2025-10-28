@@ -1,5 +1,5 @@
+import { ElementType } from "react";
 import { Discord, Todolist, WeatherForecast } from "@/constants/image";
-import { ElementType, JSX } from "react";
 
 interface Projects {
   key: string;
