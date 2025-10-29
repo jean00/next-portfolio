@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { Button } from "./ui/button";
 import {
   SheetTrigger,
@@ -11,6 +11,7 @@ import {
   SheetClose,
   Sheet,
 } from "./ui/sheet";
+import { useTheme } from "next-themes";
 
 const MobileMenu = ({
   navLinks,
@@ -18,6 +19,7 @@ const MobileMenu = ({
   navLinks: { name: string; href: string }[];
 }) => {
   const [open, setOpen] = useState(false);
+  const { setTheme, theme } = useTheme();
 
   return (
     <div className="md:hidden">
@@ -54,14 +56,17 @@ const MobileMenu = ({
             ))}
           </nav>
           <div className="mt-12 border-t border-white/10 pt-6 flex justify-between items-center">
-            <span className="text-sm text-muted-foreground">
-              Jean / portfolio
-            </span>
-            <SheetClose asChild>
-              <Button variant="ghost" size="icon">
-                <X className="h-5 w-5" />
-              </Button>
-            </SheetClose>
+            <span className="text-sm text-primary-text">Jean / portfolio</span>
+
+            <Button
+              className="cursor-pointer"
+              variant="outline"
+              size="icon"
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            >
+              <Sun className="h-5 w-5 transition-all dark:opacity-0" />
+              <Moon className="absolute h-5 w-5 transition-all opacity-0 dark:opacity-100" />
+            </Button>
           </div>
         </SheetContent>
       </Sheet>
