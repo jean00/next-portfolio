@@ -1,4 +1,3 @@
-import { ElementType } from "react";
 import {
   CssIcon,
   D3Icon,
@@ -13,38 +12,41 @@ import {
   Discord,
   Todolist,
   WeatherForecast,
+  AzureIcon,
+  GitlabIcon,
 } from "@/constants/image";
+import type { Project, Technology } from "@/types";
 
-interface Projects {
-  key: string;
-  image: ElementType;
-  title: string;
-  description: string;
-  githubUrl: string;
-  liveUrl: string;
-}
-
-export const technologies: ElementType[] = [
-  ReactIcon,
-  TypescriptIcon,
-  HtmlIcon,
-  CssIcon,
-  JavascriptIcon,
-  D3Icon,
-  ReduxIcon,
-  GitIcon,
-  TailwindIcon,
-  NextIcon,
+export const technologies: Technology[] = [
+  { name: "React", icon: ReactIcon },
+  { name: "Typescript", icon: TypescriptIcon },
+  { name: "HTML", icon: HtmlIcon },
+  { name: "CSS", icon: CssIcon },
+  { name: "Javascript", icon: JavascriptIcon },
+  { name: "D3", icon: D3Icon },
+  { name: "Redux", icon: ReduxIcon },
+  { name: "Git", icon: GitIcon },
+  { name: "Tailwind", icon: TailwindIcon },
+  { name: "Next", icon: NextIcon },
+  {
+    name: "Azure",
+    icon: AzureIcon,
+  },
+  {
+    name: "Gitlab",
+    icon: GitlabIcon,
+  },
 ];
 
-export const projects: Projects[] = [
+export const projects: Project[] = [
   {
     key: "discord-music-bot",
     image: Discord,
     title: "Discord music bot",
     description: "A simple music bot for Discord built by using Node Js.",
     githubUrl: "https://github.com/jean00/discordbot",
-    liveUrl: "https://discord.com/oauth2/authorize?client_id=904003512927653899&scope=bot&permissions=3147776",
+    liveUrl:
+      "https://discord.com/oauth2/authorize?client_id=904003512927653899&scope=bot&permissions=3147776",
   },
   {
     key: "todo-list",

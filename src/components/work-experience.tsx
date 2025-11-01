@@ -2,9 +2,21 @@
 
 import SectionWrapper from "@/wrapper/section-wrapper";
 import { Briefcase, Code, Rocket } from "lucide-react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 import { Badge } from "./ui/badge";
-import { Carousel, CarouselContent, CarouselItem, CarouselDots } from "./ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselDots,
+} from "./ui/carousel";
 
 const experiences = [
   {
@@ -32,7 +44,15 @@ const experiences = [
     period: "2023 – Present",
     description:
       "Front-End Developer in a project focused on building business process applications using React within a Micro Front-End architecture",
-    tech: ["React", "TypeScript", "Figma", "Micro Front-Ends", "CSS", "Git", "Azure"],
+    tech: [
+      "React",
+      "TypeScript",
+      "Figma",
+      "Micro Front-Ends",
+      "CSS",
+      "Git",
+      "Azure",
+    ],
   },
 ];
 
@@ -40,19 +60,24 @@ const WorkExperience = () => {
   return (
     <>
       <h2 className="text-4xl font-bold text-center mb-4 md:mb-10">
-        My Work <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Experiences</span>
+        My Work{" "}
+        <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          Experiences
+        </span>
       </h2>
       {/* Desktop */}
       <div className="hidden lg:flex space-x-10 min-w-max">
         {experiences.map((exp) => (
-          <Card key={exp.company} className="border-0 r w-72 bg-white dark:bg-slate-900">
+          <Card key={exp.company} className="border-0 w-72 bg-card">
             <CardHeader>
               <CardTitle className="flex justify-center">{exp.icon}</CardTitle>
               <CardDescription>
                 {exp.company} — {exp.period}
               </CardDescription>
             </CardHeader>
-            <CardContent className="text-primary-text text-sm">{exp.description}</CardContent>
+            <CardContent className="text-card-foreground text-sm">
+              {exp.description}
+            </CardContent>
             <CardFooter className="mt-[auto] flex flex-wrap justify-center gap-2">
               {exp.tech.map((t) => (
                 <Badge key={t} variant="tech">
@@ -68,14 +93,18 @@ const WorkExperience = () => {
         <CarouselContent>
           {experiences.map((exp) => (
             <CarouselItem key={exp.company} className="flex justify-center">
-              <Card key={exp.company} className="border-0 w-72 bg-white dark:bg-slate-900">
+              <Card key={exp.company} className="border-0 w-72 bg-card">
                 <CardHeader>
-                  <CardTitle className="flex justify-center">{exp.icon}</CardTitle>
+                  <CardTitle className="flex justify-center">
+                    {exp.icon}
+                  </CardTitle>
                   <CardDescription>
                     {exp.company} — {exp.period}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="text-primary-text text-sm">{exp.description}</CardContent>
+                <CardContent className="text-card-foreground text-sm">
+                  {exp.description}
+                </CardContent>
                 <CardFooter className="mt-auto flex flex-wrap justify-center gap-2">
                   {exp.tech.map((t) => (
                     <Badge key={t} variant="tech">

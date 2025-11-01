@@ -11,6 +11,8 @@ import WeatherForecast from "@/assets/weatherForecast.svg";
 import GitIcon from "@/assets/gitIcon.svg";
 import TailwindIcon from "@/assets/tailwindIcon.svg";
 import NextIcon from "@/assets/nextIcon.svg";
+import AzureIcon from "@/assets/azureIcon.svg";
+import GitlabIcon from "@/assets/gitlabIcon.svg";
 
 export {
   ReactIcon,
@@ -26,4 +28,6 @@ export {
   GitIcon,
   TailwindIcon,
   NextIcon,
+  AzureIcon,
+  GitlabIcon,
 };

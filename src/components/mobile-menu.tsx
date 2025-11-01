@@ -29,6 +29,7 @@ const MobileMenu = ({
             variant="outline"
             size="icon"
             className="bg-transparent border-none"
+            aria-label="Open mobile menu"
           >
             <Menu className="h-6 w-6" />
           </Button>
@@ -36,33 +37,43 @@ const MobileMenu = ({
 
         <SheetContent
           side="right"
-          className="w-[80vw] sm:w-[60vw] p-6 flex flex-col justify-between bg-background/80 backdrop-blur-md border-l border-white/10"
+          className="w-[80vw] sm:w-[60vw] p-6 flex flex-col justify-between bg-background/80 backdrop-blur-md border-l border-border/20"
         >
           <SheetHeader>
-            <SheetTitle className="text-lg font-semibold text-white mb-4">
+            <SheetTitle className="text-lg font-semibold text-foreground mb-4">
               Menu
             </SheetTitle>
           </SheetHeader>
-          <nav className="flex flex-col space-y-6 mt-8">
+          <nav
+            className="flex flex-col space-y-6 mt-8"
+            role="navigation"
+            aria-label="Mobile navigation"
+          >
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-xl font-medium text-gray-200 hover:text-primary transition-colors duration-300"
+                className="text-xl font-medium text-foreground hover:text-primary focus:text-primary focus:outline-2 focus:outline-primary focus:outline-offset-2 rounded transition-colors duration-300"
                 onClick={() => setOpen(false)}
+                aria-label={`Navigate to ${link.name} section`}
               >
                 {link.name}
               </a>
             ))}
           </nav>
-          <div className="mt-12 border-t border-white/10 pt-6 flex justify-between items-center">
-            <span className="text-sm text-primary-text">Jean / portfolio</span>
+          <div className="mt-12 border-t border-border/20 pt-6 flex justify-between items-center">
+            <span className="text-sm text-muted-foreground">
+              Jean / portfolio
+            </span>
 
             <Button
               className="cursor-pointer"
               variant="outline"
               size="icon"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              aria-label={`Switch to ${
+                theme === "light" ? "dark" : "light"
+              } theme`}
             >
               <Sun className="h-5 w-5 transition-all dark:opacity-0" />
               <Moon className="absolute h-5 w-5 transition-all opacity-0 dark:opacity-100" />

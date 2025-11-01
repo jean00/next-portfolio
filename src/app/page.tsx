@@ -1,5 +1,3 @@
-"use client";
-
 import About from "@/components/about";
 import Contacts from "@/components/contacts";
 import Hero from "@/components/hero";
@@ -9,7 +7,7 @@ import WorkExperience from "@/components/work-experience";
 
 export default function Home() {
   return (
-    <main className="px-6 sm:px-15">
+    <main className="px-6 md:px-16 overflow-hidden">
       <Hero />
       <About />
       <WorkExperience />
