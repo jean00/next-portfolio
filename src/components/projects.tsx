@@ -2,9 +2,9 @@
 
 import SectionWrapper from "@/wrapper/section-wrapper";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card";
-import { projects } from "@/constants/projects";
 import { Carousel, CarouselContent, CarouselDots, CarouselItem } from "./ui/carousel";
 import { ExternalLink, Github } from "lucide-react";
+import { projects } from "@/constants/helper";
 
 const Projects = () => {
   return (
@@ -15,13 +15,7 @@ const Projects = () => {
       {/* Desktop */}
       <div className="hidden lg:flex space-x-10 min-w-max">
         {projects.map((project) => (
-          <Card
-            key={project.key}
-            className="border-0 w-72"
-            style={{
-              background: `linear-gradient(to right, ${project.background[0]}, ${project.background[1]})`,
-            }}
-          >
+          <Card key={project.key} className="border-0 w-72 bg-white dark:bg-slate-900">
             <CardContent>{<project.image className="w-full object-cover rounded-2xl" />}</CardContent>
             <CardHeader className="text-primary-text text-sm h-full">
               <CardTitle>{project.title}</CardTitle>
@@ -32,7 +26,7 @@ const Projects = () => {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-sm text-white/80 hover:text-white font-medium transition-all"
+                className="flex items-center gap-1 text-sm text-primary-text hover:text-blue-700 font-medium transition-all"
               >
                 <Github size={16} /> GitHub
               </a>
@@ -40,7 +34,7 @@ const Projects = () => {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-sm text-white/80 hover:text-white font-medium transition-all"
+                className="flex items-center gap-1 text-sm text-primary-text hover:hover:text-blue-700 font-medium transition-all"
               >
                 <ExternalLink size={16} /> Live Demo
               </a>
@@ -53,12 +47,7 @@ const Projects = () => {
         <CarouselContent>
           {projects.map((project) => (
             <CarouselItem key={project.key} className="flex justify-center">
-              <Card
-                className="border-0 w-72"
-                style={{
-                  background: `linear-gradient(to right, ${project.background[0]}, ${project.background[1]})`,
-                }}
-              >
+              <Card className="border-0 w-72 bg-white dark:bg-slate-900">
                 <CardContent>{<project.image className="w-full object-cover rounded-2xl" />}</CardContent>
                 <CardHeader className="text-primary-text text-sm">
                   <CardTitle>{project.title}</CardTitle>
@@ -69,7 +58,7 @@ const Projects = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-sm text-white/80 hover:text-white font-medium transition-all"
+                    className="flex items-center gap-1 text-sm text-primary-text hover:text-white font-medium transition-all"
                   >
                     <Github size={16} /> GitHub
                   </a>
@@ -77,7 +66,7 @@ const Projects = () => {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-sm text-white/80 hover:text-white font-medium transition-all"
+                    className="flex items-center gap-1 text-sm text-primary-text hover:text-white font-medium transition-all"
                   >
                     <ExternalLink size={16} /> Live Demo
                   </a>

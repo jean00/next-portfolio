@@ -1,8 +1,8 @@
 "use client";
+
 import { JSX } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
-import NavigationDots from "@/components/navigation-dots";
 
 const SectionWrapper = (Component: () => JSX.Element, id: string, nextId?: string) =>
   function HOC() {
@@ -13,7 +13,7 @@ const SectionWrapper = (Component: () => JSX.Element, id: string, nextId?: strin
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           id={id}
-          className="relative flex flex-col justify-center items-center min-h-screen text-center"
+          className="relative flex flex-col justify-center items-center min-h-screen text-center w-full"
         >
           <Component />
           {nextId && (

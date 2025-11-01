@@ -8,6 +8,9 @@ import ReduxIcon from "@/assets/reduxIcon.svg";
 import Discord from "@/assets/discord.svg";
 import Todolist from "@/assets/todoList.svg";
 import WeatherForecast from "@/assets/weatherForecast.svg";
+import GitIcon from "@/assets/gitIcon.svg";
+import TailwindIcon from "@/assets/tailwindIcon.svg";
+import NextIcon from "@/assets/nextIcon.svg";
 
 export {
   ReactIcon,
@@ -20,4 +23,7 @@ export {
   Discord,
   Todolist,
   WeatherForecast,
+  GitIcon,
+  TailwindIcon,
+  NextIcon,
 };

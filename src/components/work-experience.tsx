@@ -45,7 +45,7 @@ const WorkExperience = () => {
       {/* Desktop */}
       <div className="hidden lg:flex space-x-10 min-w-max">
         {experiences.map((exp) => (
-          <Card key={exp.company} className="border-0 r w-72 bg-white dark:bg-gray-900">
+          <Card key={exp.company} className="border-0 r w-72 bg-white dark:bg-slate-900">
             <CardHeader>
               <CardTitle className="flex justify-center">{exp.icon}</CardTitle>
               <CardDescription>
@@ -68,7 +68,7 @@ const WorkExperience = () => {
         <CarouselContent>
           {experiences.map((exp) => (
             <CarouselItem key={exp.company} className="flex justify-center">
-              <Card key={exp.company} className="border-0 w-72 bg-white dark:bg-gray-900">
+              <Card key={exp.company} className="border-0 w-72 bg-white dark:bg-slate-900">
                 <CardHeader>
                   <CardTitle className="flex justify-center">{exp.icon}</CardTitle>
                   <CardDescription>
