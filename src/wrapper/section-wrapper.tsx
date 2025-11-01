@@ -21,10 +21,7 @@ const SectionWrapper = (
         >
           <Component />
           {nextId && (
-            <a
-              href={`#${nextId}`}
-              className="absolute bottom-2 lg:bottom-10 animate-bounce"
-            >
+            <a href={`#${nextId}`} className="absolute bottom-2 animate-bounce">
               <ChevronDown size={64} />
             </a>
           )}

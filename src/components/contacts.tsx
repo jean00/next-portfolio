@@ -95,7 +95,7 @@ const Contacts = () => {
           Connect
         </span>
       </h2>
-      <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 mb-10">
+      <p className="hidden md:block text-sm md:text-lg text-gray-600 dark:text-gray-300 mb-10">
         I&apos;m always open to new opportunities, collaborations. Drop me a
         message or find me on one of my social channels below
       </p>
@@ -105,7 +105,7 @@ const Contacts = () => {
       >
         <FieldGroup>
           <FieldSet>
-            <FieldGroup>
+            <FieldGroup className="gap-4">
               <Field>
                 <FieldLabel htmlFor="name">Your Name *</FieldLabel>
                 <Input
@@ -178,10 +178,10 @@ const Contacts = () => {
           </Field>
         </FieldGroup>
       </form>
-      <Button className="mb-6" variant="outline" type="button">
+      <Button className="hidden md:block mb-6" variant="outline" type="button">
         Download CV
       </Button>
-      <div className="flex gap-8 flex-wrap justify-center">
+      <div className="flex gap-2 md:gap-8 flex-wrap justify-center">
         <a
           href="mailto:jeanlouis433@gmail.com"
           className="flex items-center gap-2 text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-blue-500 transition"

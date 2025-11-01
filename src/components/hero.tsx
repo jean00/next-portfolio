@@ -12,7 +12,7 @@ const Hero = () => {
       <h1 className="text-5xl sm:text-6xl font-bold">
         Hi, I'm{" "}
         <span className="bg-gradient-to-b from-[#000000] to-[#00DDFF] bg-clip-text text-transparent">
-          Puli
+          Jean
         </span>
       </h1>
       <h2 className="text-3xl sm:text-5xl mb-6">Frontend developer</h2>

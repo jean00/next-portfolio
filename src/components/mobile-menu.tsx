@@ -61,7 +61,10 @@ const MobileMenu = ({
               </a>
             ))}
           </nav>
-          <div className="mt-12 border-t border-border/20 pt-6 flex justify-between items-center">
+          <Button className="mb-6" variant="outline" type="button">
+            Download CV
+          </Button>
+          <div className="border-t border-border/20 pt-6 flex justify-between items-center">
             <span className="text-sm text-muted-foreground">
               Jean / portfolio
             </span>

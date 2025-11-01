@@ -1,8 +1,5 @@
 import {
-  CssIcon,
   D3Icon,
-  HtmlIcon,
-  JavascriptIcon,
   ReactIcon,
   ReduxIcon,
   TypescriptIcon,
@@ -20,9 +17,6 @@ import type { Project, Technology } from "@/types";
 export const technologies: Technology[] = [
   { name: "React", icon: ReactIcon },
   { name: "Typescript", icon: TypescriptIcon },
-  { name: "HTML", icon: HtmlIcon },
-  { name: "CSS", icon: CssIcon },
-  { name: "Javascript", icon: JavascriptIcon },
   { name: "D3", icon: D3Icon },
   { name: "Redux", icon: ReduxIcon },
   { name: "Git", icon: GitIcon },
