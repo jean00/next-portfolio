@@ -28,7 +28,7 @@ const About = () => {
           priority
         />
 
-        <div className="flex flex-col lg:h-full text-center lg:text-left gap-4">
+        <div className="flex flex-col lg:h-auto text-center lg:text-left lg:justify-between gap-4">
           <p className="text-sm lg:text-xl text-gray-400 leading-relaxed">
             I&apos;m a front end developer with experience in TypeScript and
             JavaScript, and expertise in frameworks like React, Next.js.
@@ -55,8 +55,6 @@ const About = () => {
               </div>
             ))}
           </div>
-        </div>
-        <div>
           <div className="block lg:hidden w-[calc(100vw-3rem)] overflow-hidden">
             <div className="flex gap-10 animate-marquee">
               {technologies.map(({ name, icon: Logo }, i) => (

@@ -45,7 +45,7 @@ const Nav = () => {
           variant="outline"
           size="icon"
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+          aria-label="Switch theme"
         >
           <Sun className="h-5 w-5 transition-all dark:opacity-0" />
           <Moon className="absolute h-5 w-5 transition-all opacity-0 dark:opacity-100" />
