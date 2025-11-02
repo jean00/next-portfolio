@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <>
       <h1 className="text-5xl sm:text-6xl font-bold">
-        Hi, I'm{" "}
+        Hi, I&apos;m{" "}
         <span className="bg-gradient-to-b from-[#000000] to-[#00DDFF] bg-clip-text text-transparent">
           Jean
         </span>

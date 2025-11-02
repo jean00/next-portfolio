@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState, useCallback } from "react";
 
+const sections = ["home", "about", "work-experience", "projects", "contacts"];
+
 const NavigationDots = () => {
   const [active, setActive] = useState("home");
-  const sections = ["home", "about", "work-experience", "projects", "contacts"];
 
   const onScroll = useCallback(() => {
     const scrollPos = window.scrollY;
@@ -13,7 +14,7 @@ const NavigationDots = () => {
     });
 
     setActive(current ?? "home");
-  }, [sections]);
+  }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);

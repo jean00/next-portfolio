@@ -44,8 +44,8 @@ class ErrorBoundary extends Component<Props, State> {
             Oops! Something went wrong
           </h2>
           <p className="text-muted-foreground mb-6 max-w-md">
-            We're sorry, but something unexpected happened. Please refresh the
-            page or try again later.
+            We&apos;re sorry, but something unexpected happened. Please refresh
+            the page or try again later.
           </p>
           <button
             onClick={() => window.location.reload()}

@@ -1,14 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Menu, Moon, Sun } from "lucide-react";
 import { Button } from "./ui/button";
 import {
   SheetTrigger,
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetClose,
   Sheet,
 } from "./ui/sheet";
 import { useTheme } from "next-themes";
