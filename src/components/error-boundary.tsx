@@ -20,31 +20,24 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   static getDerivedStateFromError(error: Error): State {
-    // Update state so the next render will show the fallback UI
     return { hasError: true, error };
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    // Log error to console or error reporting service
     console.error("Error Boundary caught an error:", error, errorInfo);
 
     this.setState({
       error,
       errorInfo,
     });
-
-    // You can also log the error to an error reporting service here
-    // logErrorToService(error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
-      // Custom fallback UI
       if (this.props.fallback) {
         return this.props.fallback;
       }
 
-      // Default fallback UI
       return (
         <div className="min-h-[400px] flex flex-col items-center justify-center p-8 text-center bg-destructive/10 border border-destructive/20 rounded-lg">
           <h2 className="text-2xl font-bold text-destructive mb-4">

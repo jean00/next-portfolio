@@ -21,7 +21,11 @@ const SectionWrapper = (
         >
           <Component />
           {nextId && (
-            <a href={`#${nextId}`} className="absolute bottom-2 animate-bounce">
+            <a
+              aria-label={`Scroll to ${nextId}`}
+              href={`#${nextId}`}
+              className="absolute bottom-2 animate-bounce"
+            >
               <ChevronDown size={64} />
             </a>
           )}

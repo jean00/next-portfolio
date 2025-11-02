@@ -12,6 +12,7 @@ import {
   Sheet,
 } from "./ui/sheet";
 import { useTheme } from "next-themes";
+import { toast } from "sonner";
 
 const MobileMenu = ({
   navLinks,
@@ -61,8 +62,20 @@ const MobileMenu = ({
               </a>
             ))}
           </nav>
-          <Button className="mb-6" variant="outline" type="button">
-            Download CV
+          <Button
+            asChild
+            className="mb-6"
+            variant="outline"
+            type="button"
+            onClick={() => {
+              toast("Download started", {
+                description: "Check your download folder",
+              });
+            }}
+          >
+            <a href="/cv_mosquera.pdf" download>
+              Download CV
+            </a>
           </Button>
           <div className="border-t border-border/20 pt-6 flex justify-between items-center">
             <span className="text-sm text-muted-foreground">

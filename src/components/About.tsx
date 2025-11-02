@@ -1,9 +1,10 @@
 "use client";
 
-import Avatar from "@/assets/avatar.png";
+import Avatar from "@/assets/images/avatar.png";
 import { technologies } from "@/constants/helper";
 import SectionWrapper from "@/wrapper/section-wrapper";
 import Image from "next/image";
+import { toast } from "sonner";
 
 const About = () => {
   return (
@@ -55,18 +56,32 @@ const About = () => {
             ))}
           </div>
         </div>
-
-        <div className="block lg:hidden w-[calc(100vw-3rem)] overflow-hidden">
-          <div className="flex gap-10 animate-marquee">
-            {technologies.map(({ name, icon: Logo }, i) => (
-              <div key={i} className="flex items-center justify-center gap-2">
-                <div className="flex items-center gap-3 shrink-0 w-[32px] h-[32px]">
-                  <Logo className="w-full h-full" />
+        <div>
+          <div className="block lg:hidden w-[calc(100vw-3rem)] overflow-hidden">
+            <div className="flex gap-10 animate-marquee">
+              {technologies.map(({ name, icon: Logo }, i) => (
+                <div key={i} className="flex items-center justify-center gap-2">
+                  <Logo className="flex items-center gap-3 shrink-0 w-[32px] h-[32px]" />
+                  <p className="text-primary-text">{name}</p>
                 </div>
-                <p className="text-primary-text">{name}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+          <p className="text-xs lg:text-xl text-gray-400 leading-relaxed mt-4 lg:mt-0 text-right">
+            See more on my{" "}
+            <a
+              href="/cv_mosquera.pdf"
+              download
+              className="text-blue-500 underline"
+              onClick={() => {
+                toast("Download started", {
+                  description: "Check your download folder",
+                });
+              }}
+            >
+              resume
+            </a>
+          </p>
         </div>
       </div>
     </>

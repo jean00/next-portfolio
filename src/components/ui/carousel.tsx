@@ -195,8 +195,6 @@ function CarouselDots({ className, ...props }: React.ComponentProps<"div">) {
           key={index}
           role="tab"
           data-slot="carousel-dot"
-          aria-selected={index === selectedIndex}
-          aria-controls="carousel-item"
           aria-label={`Slide ${index + 1}`}
           className={cn(
             "size-2.5 rounded-full border border-ring cursor-pointer",

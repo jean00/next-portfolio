@@ -1,5 +1,6 @@
 "use client";
 
+import { toast } from "sonner";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import SectionWrapper from "@/wrapper/section-wrapper";
@@ -23,7 +24,19 @@ const Hero = () => {
           </Badge>
         ))}
       </div>
-      <Button variant="outline"> Download Resume</Button>
+      <Button
+        asChild
+        variant="outline"
+        onClick={() => {
+          toast("Download started", {
+            description: "Check your download folder",
+          });
+        }}
+      >
+        <a href="/cv_mosquera.pdf" download>
+          Download CV
+        </a>
+      </Button>
     </>
   );
 };

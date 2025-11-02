@@ -4,6 +4,7 @@ import ErrorBoundary from "@/components/error-boundary";
 import type { Metadata } from "next";
 import Nav from "@/components/nav";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -86,6 +87,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <Toaster />
             <Nav />
             <ErrorBoundary
               fallback={

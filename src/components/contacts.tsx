@@ -14,6 +14,7 @@ import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { Mail, Linkedin, Github, Send, Check } from "lucide-react";
 import type { ContactFormData, ContactFormErrors } from "@/types";
+import { toast } from "sonner";
 
 const Contacts = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -54,7 +55,6 @@ const Contacts = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    // Clear error when user starts typing
     if (errors[name as keyof ContactFormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
@@ -68,12 +68,22 @@ const Contacts = () => {
     setIsSubmitting(true);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Form submitted:", formData);
-
       setIsSubmitted(true);
+      await fetch("/api/send-email", {
+        method: "POST",
+        cache: "no-cache",
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: "New Contact Form Submission",
+          message: formData.message,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setIsSubmitted(false);
       setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setIsSubmitted(false), 3000);
     } catch (error) {
       console.error("Form submission error:", error);
       setErrors({ message: "Failed to send message. Please try again." });
@@ -87,6 +97,7 @@ const Contacts = () => {
     setErrors({});
     setIsSubmitted(false);
   };
+
   return (
     <>
       <h2 className="text-4xl font-bold mb-4">
@@ -178,8 +189,20 @@ const Contacts = () => {
           </Field>
         </FieldGroup>
       </form>
-      <Button className="hidden md:block mb-6" variant="outline" type="button">
-        Download CV
+      <Button
+        asChild
+        className="hidden md:block mb-6"
+        variant="outline"
+        type="button"
+        onClick={() => {
+          toast("Download started", {
+            description: "Check your download folder",
+          });
+        }}
+      >
+        <a href="/cv_mosquera.pdf" download>
+          Download CV
+        </a>
       </Button>
       <div className="flex gap-2 md:gap-8 flex-wrap justify-center">
         <a
