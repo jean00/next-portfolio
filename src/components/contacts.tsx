@@ -2,13 +2,7 @@
 
 import SectionWrapper from "@/wrapper/section-wrapper";
 import React, { useState } from "react";
-import {
-  Field,
-  FieldGroup,
-  FieldLabel,
-  FieldSet,
-  FieldError,
-} from "@/components/ui/field";
+import { Field, FieldGroup, FieldLabel, FieldSet, FieldError } from "@/components/ui/field";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
@@ -41,17 +35,15 @@ const Contacts = () => {
 
     if (!formData.message.trim()) {
       newErrors.message = "Message is required";
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Message must be at least 10 characters long";
+    } else if (formData.message.trim().length < 5) {
+      newErrors.message = "Message must be at least 5 characters long";
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
@@ -82,13 +74,18 @@ const Contacts = () => {
           "Content-Type": "application/json",
         },
       });
-      setIsSubmitted(false);
+      toast("Email sent!", {
+        description: "I will get back to you as soon as possible.",
+      });
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("Form submission error:", error);
-      setErrors({ message: "Failed to send message. Please try again." });
+      toast("Oops!", {
+        description: "Something went wrong. Please try again later.",
+      });
     } finally {
       setIsSubmitting(false);
+      setIsSubmitted(false);
     }
   };
 
@@ -101,19 +98,12 @@ const Contacts = () => {
   return (
     <>
       <h2 className="text-4xl font-bold mb-4">
-        Let&apos;s{" "}
-        <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-          Connect
-        </span>
+        Let&apos;s <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Connect</span>
       </h2>
       <p className="hidden md:block text-sm md:text-lg text-gray-600 dark:text-gray-300 mb-10">
-        I&apos;m always open to new opportunities, collaborations. Drop me a
-        message or find me on one of my social channels below
+        I&apos;m always open to new opportunities, collaborations. Drop me a message or find me on one of my social channels below
       </p>
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col gap-4 w-full max-w-md bg-card p-8 rounded-2xl shadow-md mb-6"
-      >
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-md bg-card p-8 rounded-2xl shadow-md mb-6">
         <FieldGroup>
           <FieldSet>
             <FieldGroup className="gap-4">
@@ -161,11 +151,7 @@ const Contacts = () => {
             </FieldGroup>
           </FieldSet>
           <Field orientation="horizontal">
-            <Button
-              type="submit"
-              disabled={isSubmitting || isSubmitted}
-              className="flex items-center gap-2"
-            >
+            <Button type="submit" disabled={isSubmitting || isSubmitted} className="flex items-center gap-2">
               {isSubmitting ? (
                 <>
                   <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
