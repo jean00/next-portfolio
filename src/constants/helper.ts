@@ -1,5 +1,4 @@
 import {
-  D3Icon,
   ReactIcon,
   ReduxIcon,
   TypescriptIcon,
@@ -9,7 +8,6 @@ import {
   Discord,
   Todolist,
   WeatherForecast,
-  AzureIcon,
   GitlabIcon,
 } from "@/constants/image";
 import type { Project, Technology } from "@/types";
@@ -17,15 +15,11 @@ import type { Project, Technology } from "@/types";
 export const technologies: Technology[] = [
   { name: "React", icon: ReactIcon },
   { name: "Typescript", icon: TypescriptIcon },
-  { name: "D3", icon: D3Icon },
   { name: "Redux", icon: ReduxIcon },
   { name: "Git", icon: GitIcon },
   { name: "Tailwind", icon: TailwindIcon },
   { name: "Next", icon: NextIcon },
-  {
-    name: "Azure",
-    icon: AzureIcon,
-  },
+
   {
     name: "Gitlab",
     icon: GitlabIcon,

@@ -23,9 +23,9 @@ const About = () => {
       <div className="flex flex-col lg:flex-row gap-8 md:gap-6">
         <Image
           src={Avatar}
-          alt="Jean portrait"
+          alt="Jean avatar"
           className="hidden lg:block rounded-3xl shadow-2xl hover:scale-105 transition w-48 sm:w-56 md:w-72 lg:w-[350px] h-auto"
-          priority
+          loading="lazy"
         />
 
         <div className="flex flex-col lg:h-auto text-center lg:text-left lg:justify-between gap-4">
@@ -55,6 +55,7 @@ const About = () => {
               </div>
             ))}
           </div>
+          {/* Mobile */}
           <div className="block lg:hidden w-[calc(100vw-3rem)] overflow-hidden">
             <div className="flex gap-10 animate-marquee">
               {technologies.map(({ name, icon: Logo }, i) => (
