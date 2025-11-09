@@ -50,6 +50,6 @@ export const projects: Project[] = [
     title: "Weather Forecast App",
     description: "A simple weather forecast app built by using React.",
     githubUrl: "https://github.com/jean00/nextweatherapp",
-    liveUrl: "https://weatherapp-jean00.vercel.app/",
+    liveUrl: "https://next-crud-weather.vercel.app/",
   },
 ];
