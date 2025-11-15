@@ -39,16 +39,18 @@ export const projects: Project[] = [
   {
     key: "todo-list",
     image: Todolist,
-    title: "Todo List App",
-    description: "A simple todo list app built by using React.",
-    githubUrl: "https://github.com/jean00/todolist",
-    liveUrl: "https://jean00.github.io/todolist/",
+    title: "Todo Manager",
+    description:
+      "A todo management full stack application with pinned todos, color coding, and due dates. Uses React, TypeScript, Redux, Tailwind CSS, Node.js, Express, and MongoDB.",
+    githubUrl: "https://github.com/jean00/todo-manager",
+    liveUrl: "https://todo-manager-frontend.onrender.com/",
   },
   {
     key: "weather-forecast-app",
     image: WeatherForecast,
     title: "Weather Forecast App",
-    description: "A simple weather forecast app built by using React.",
+    description:
+      "Weather forecast website built with Next.js, TypeScript, Tailwind CSS, NextAuth.js, Mongoose, and date-fns.",
     githubUrl: "https://github.com/jean00/nextweatherapp",
     liveUrl: "https://next-crud-weather.vercel.app/",
   },
