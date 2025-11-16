@@ -6,9 +6,9 @@ import {
   TailwindIcon,
   NextIcon,
   Discord,
-  Todolist,
-  WeatherForecast,
   GitlabIcon,
+  TodoManager,
+  WeatherApp,
 } from "@/constants/image";
 import type { Project, Technology } from "@/types";
 
@@ -19,7 +19,6 @@ export const technologies: Technology[] = [
   { name: "Git", icon: GitIcon },
   { name: "Tailwind", icon: TailwindIcon },
   { name: "Next", icon: NextIcon },
-
   {
     name: "Gitlab",
     icon: GitlabIcon,
@@ -38,7 +37,7 @@ export const projects: Project[] = [
   },
   {
     key: "todo-list",
-    image: Todolist,
+    image: TodoManager,
     title: "Todo Manager",
     description:
       "A todo management full stack application with pinned todos, color coding, and due dates. Uses React, TypeScript, Redux, Tailwind CSS, Node.js, Express, and MongoDB.",
@@ -47,7 +46,7 @@ export const projects: Project[] = [
   },
   {
     key: "weather-forecast-app",
-    image: WeatherForecast,
+    image: WeatherApp,
     title: "Weather Forecast App",
     description:
       "Weather forecast website built with Next.js, TypeScript, Tailwind CSS, NextAuth.js, Mongoose, and date-fns.",

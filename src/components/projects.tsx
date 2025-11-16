@@ -17,6 +17,7 @@ import {
 } from "./ui/carousel";
 import { ExternalLink, Github } from "lucide-react";
 import { projects } from "@/constants/helper";
+import Image from "next/image";
 
 const Projects = () => {
   return (
@@ -32,7 +33,13 @@ const Projects = () => {
         {projects.map((project) => (
           <Card key={project.key} className="border-0 w-72 bg-card">
             <CardContent>
-              {<project.image className="w-full object-cover rounded-2xl" />}
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={300}
+                height={200}
+                className="w-full object-cover rounded-2xl"
+              />
             </CardContent>
             <CardHeader className="text-card-foreground text-sm h-full">
               <CardTitle>{project.title}</CardTitle>
@@ -66,9 +73,11 @@ const Projects = () => {
             <CarouselItem key={project.key} className="flex justify-center">
               <Card className="border-0 w-72 bg-card">
                 <CardContent>
-                  {
-                    <project.image className="w-full object-cover rounded-2xl" />
-                  }
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full object-cover rounded-2xl"
+                  />
                 </CardContent>
                 <CardHeader className="text-card-foreground text-sm">
                   <CardTitle>{project.title}</CardTitle>

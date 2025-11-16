@@ -1,9 +1,10 @@
+import { StaticImageData } from "next/image";
 import { ElementType } from "react";
 
 // Project related types
 export interface Project {
   key: string;
-  image: ElementType;
+  image: StaticImageData;
   title: string;
   description: string;
   githubUrl: string;
