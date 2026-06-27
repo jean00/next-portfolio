@@ -83,7 +83,11 @@ export function useContactForm() {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
-    dispatch({ type: "SET_FIELD", field: name as keyof ContactFormData, value });
+    dispatch({
+      type: "SET_FIELD",
+      field: name as keyof ContactFormData,
+      value,
+    });
   };
 
   const handleSubmit = async (e: FormEvent) => {
