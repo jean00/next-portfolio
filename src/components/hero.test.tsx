@@ -9,7 +9,7 @@ jest.mock("sonner", () => ({ toast: jest.fn() }));
 jest.mock("next/image", () => ({
   __esModule: true,
   default: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
-    <img {...props} />
+    <img {...props} alt="Hero image" />
   ),
 }));
 
