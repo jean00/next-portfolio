@@ -1,8 +1,8 @@
 "use client";
 
 import Avatar from "@/assets/images/avatar.png";
-import { technologies } from "@/constants/helper";
-import SectionWrapper from "@/wrapper/section-wrapper";
+import { technologies } from "@/data/technologies";
+import SectionWrapper from "@/components/section-wrapper";
 import Image from "next/image";
 import { toast } from "sonner";
 
@@ -69,7 +69,7 @@ const About = () => {
           <p className="text-xs lg:text-xl text-gray-400 leading-relaxed mt-4 lg:mt-0 text-right">
             See more on my{" "}
             <a
-              href="/cv_mosquera.pdf"
+              href="/Jean_Louis_Mosquera_Escobar_Frontend_Engineer.pdf"
               download
               className="text-blue-500 underline"
               onClick={() => {

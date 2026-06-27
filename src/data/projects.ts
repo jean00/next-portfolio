@@ -1,29 +1,5 @@
-import {
-  ReactIcon,
-  ReduxIcon,
-  TypescriptIcon,
-  GitIcon,
-  TailwindIcon,
-  NextIcon,
-  Discord,
-  GitlabIcon,
-  TodoManager,
-  WeatherApp,
-} from "@/constants/image";
-import type { Project, Technology } from "@/types";
-
-export const technologies: Technology[] = [
-  { name: "React", icon: ReactIcon },
-  { name: "Typescript", icon: TypescriptIcon },
-  { name: "Redux", icon: ReduxIcon },
-  { name: "Git", icon: GitIcon },
-  { name: "Tailwind", icon: TailwindIcon },
-  { name: "Next", icon: NextIcon },
-  {
-    name: "Gitlab",
-    icon: GitlabIcon,
-  },
-];
+import { Discord, TodoManager, WeatherApp } from "@/constants/image";
+import type { Project } from "@/types";
 
 export const projects: Project[] = [
   {

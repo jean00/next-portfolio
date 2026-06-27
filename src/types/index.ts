@@ -46,6 +46,11 @@ export interface ContactFormErrors {
   message?: string;
 }
 
+// API response type
+export type ApiResponse<T = void> =
+  | { success: true; data: T }
+  | { success: false; error: string };
+
 // Theme types
 export type Theme = "light" | "dark" | "system";
 

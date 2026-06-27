@@ -3,7 +3,7 @@
 import { toast } from "sonner";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import SectionWrapper from "@/wrapper/section-wrapper";
+import SectionWrapper from "@/components/section-wrapper";
 
 const mainTech = ["React", "TypeScript", "Next.js", "Tailwind CSS"];
 
@@ -11,7 +11,10 @@ const Hero = () => {
   return (
     <>
       <h1 className="text-5xl sm:text-6xl font-bold">
-        Hi, I&apos;m <span className="bg-gradient-to-b from-[#000000] to-[#00DDFF] bg-clip-text text-transparent">Jean</span>
+        Hi, I&apos;m{" "}
+        <span className="bg-gradient-to-b from-[#000000] to-[#00DDFF] bg-clip-text text-transparent">
+          Jean
+        </span>
       </h1>
       <h2 className="text-3xl sm:text-5xl mb-6">Frontend developer</h2>
       <div className="flex gap-3 sm:gap-6 mb-16">
@@ -30,7 +33,7 @@ const Hero = () => {
           });
         }}
       >
-        <a href="/cv_mosquera.pdf" download>
+        <a href="/Jean_Louis_Mosquera_Escobar_Frontend_Engineer.pdf" download>
           Download CV
         </a>
       </Button>

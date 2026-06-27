@@ -32,11 +32,11 @@ export const metadata: Metadata = {
   authors: [{ name: "Jean Mosquera" }],
   creator: "Jean Mosquera",
   publisher: "Jean Mosquera",
-  metadataBase: new URL("https://your-domain.com"), // Update with your actual domain
+  metadataBase: new URL(process.env.NEXT_PUBLIC_URL ?? "http://localhost:3000"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://your-domain.com", // Update with your actual domain
+    url: process.env.NEXT_PUBLIC_URL ?? "http://localhost:3000",
     title: "Jean Mosquera | Frontend Developer Portfolio",
     description:
       "Frontend Developer specializing in React, TypeScript, Next.js, and modern web technologies.",
@@ -88,6 +88,12 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Toaster />
+            <a
+              href="#home"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"
+            >
+              Skip to content
+            </a>
             <Nav />
             <ErrorBoundary
               fallback={

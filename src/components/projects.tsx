@@ -1,6 +1,6 @@
 "use client";
 
-import SectionWrapper from "@/wrapper/section-wrapper";
+import SectionWrapper from "@/components/section-wrapper";
 import {
   Card,
   CardHeader,
@@ -16,7 +16,7 @@ import {
   CarouselItem,
 } from "./ui/carousel";
 import { ExternalLink, Github } from "lucide-react";
-import { projects } from "@/constants/helper";
+import { projects } from "@/data/projects";
 import Image from "next/image";
 
 const Projects = () => {

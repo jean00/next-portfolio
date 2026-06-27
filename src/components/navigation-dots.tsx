@@ -1,25 +1,11 @@
 "use client";
-import React, { useEffect, useState, useCallback } from "react";
+import React from "react";
+import { useActiveSection } from "@/hooks/use-active-section";
 
 const sections = ["home", "about", "work-experience", "projects", "contacts"];
 
 const NavigationDots = () => {
-  const [active, setActive] = useState("home");
-
-  const onScroll = useCallback(() => {
-    const scrollPos = window.scrollY;
-    const current = sections.findLast((id) => {
-      const el = document.getElementById(id);
-      return el && el.offsetTop <= scrollPos + window.innerHeight / 2;
-    });
-
-    setActive(current ?? "home");
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [onScroll]);
+  const active = useActiveSection(sections);
 
   return (
     <nav

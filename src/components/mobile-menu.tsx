@@ -72,7 +72,10 @@ const MobileMenu = ({
               });
             }}
           >
-            <a href="/cv_mosquera.pdf" download>
+            <a
+              href="/Jean_Louis_Mosquera_Escobar_Frontend_Engineer.pdf"
+              download
+            >
               Download CV
             </a>
           </Button>

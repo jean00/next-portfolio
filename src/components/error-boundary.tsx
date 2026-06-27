@@ -48,7 +48,7 @@ class ErrorBoundary extends Component<Props, State> {
             the page or try again later.
           </p>
           <button
-            onClick={() => window.location.reload()}
+            onClick={/* istanbul ignore next */ () => window.location.reload()}
             className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
           >
             Refresh Page
