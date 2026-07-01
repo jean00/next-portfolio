@@ -1,89 +1,96 @@
 "use client";
 
 import Avatar from "@/assets/images/avatar.png";
-import { technologies } from "@/data/technologies";
 import SectionWrapper from "@/components/section-wrapper";
 import Image from "next/image";
 import { toast } from "sonner";
+import { personalInfo, skillCategories } from "@/data/resume";
+import { Download } from "lucide-react";
+import { Button } from "./ui/button";
+import type { SkillCategory } from "@/types";
+
+interface SkillRowProps {
+  category: SkillCategory;
+}
+
+const SkillRow = ({ category }: SkillRowProps) => (
+  <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-4 py-2 sm:py-3 border-b border-border/40 last:border-0">
+    <span className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground shrink-0 sm:w-32">
+      {category.label}
+    </span>
+    <span className="text-sm text-foreground/75 leading-relaxed">
+      {category.skills.slice(0, 5).join(" · ")}
+    </span>
+  </div>
+);
 
 const About = () => {
+  const { bio, resumeUrl } = personalInfo;
+
   return (
-    <>
-      <h2 className="text-4xl font-bold mb-4">
+    <div className="w-full max-w-4xl pt-8 sm:pt-16 pb-6 sm:pb-12">
+      <h2 className="text-4xl font-bold mb-6 sm:mb-10 text-center">
         About{" "}
         <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
           Me
         </span>
       </h2>
-      <h2 className="text-md lg:text-2xl mb-2 lg:mb-12">
-        I build front-ends with <strong>performance</strong> and{" "}
-        <strong>accessibility</strong> in mind.
-        <br />
-      </h2>
-      <div className="flex flex-col lg:flex-row gap-8 md:gap-6">
-        <Image
-          src={Avatar}
-          alt="Jean avatar"
-          className="hidden lg:block rounded-3xl shadow-2xl hover:scale-105 transition w-48 sm:w-56 md:w-72 lg:w-[350px] h-auto"
-          loading="lazy"
-        />
 
-        <div className="flex flex-col lg:h-auto text-center lg:text-left lg:justify-between gap-4">
-          <p className="text-sm lg:text-xl text-gray-400 leading-relaxed">
-            I&apos;m a front end developer with experience in TypeScript and
-            JavaScript, and expertise in frameworks like React, Next.js.
-            I&apos;m a quick learner who works closely with clients to build
-            efficient, scalable, and user-friendly solutions that solve
-            real-world problems.
+      <div className="flex flex-col lg:flex-row gap-10 items-start text-left">
+        {/* Left: Avatar + download — desktop only */}
+        <div className="hidden lg:flex flex-col items-center gap-4 shrink-0">
+          <Image
+            src={Avatar}
+            alt="Jean Louis Mosquera — Frontend Software Engineer"
+            className="rounded-2xl shadow-xl w-[160px] h-auto"
+            loading="lazy"
+          />
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            onClick={() =>
+              toast("Download started", {
+                description: "Check your download folder",
+              })
+            }
+          >
+            <a href={resumeUrl} download className="flex items-center gap-2">
+              <Download className="w-3.5 h-3.5" aria-hidden="true" />
+              Resume
+            </a>
+          </Button>
+        </div>
+
+        {/* Right: Bio + skill rows */}
+        <div className="flex flex-col gap-4 sm:gap-6 flex-1 min-w-0">
+          <p className="text-base text-muted-foreground leading-relaxed">
+            {bio}
           </p>
-          <div className="flex flex-col">
-            <h2 className="text-lg font-bold lg:mb-4">My tech stack</h2>
-            <p className="text-sm lg:text-xl text-gray-400 leading-relaxed">
-              In addition to the essential skills to master as a developer, such
-              as HTML 5, CSS 3 and JavaScript, this section presents the various
-              technologies and frameworks I&apos;ve had the opportunity to work
-              with on projects, both academically and professionally.
-            </p>
-          </div>
-          <div className="hidden lg:flex w-full flex-wrap gap-10">
-            {technologies.map(({ name, icon: Logo }, i) => (
-              <div key={i} className="flex items-center justify-center gap-2">
-                <div className="w-[32px] h-[32px]">
-                  <Logo className="w-full h-full" />
-                </div>
-                <p className="text-primary-text">{name}</p>
+
+          <div role="list" aria-label="Skill categories">
+            {skillCategories.map((cat, i) => (
+              <div key={cat.id} role="listitem" className={i >= 4 ? "hidden sm:block" : ""}>
+                <SkillRow category={cat} />
               </div>
             ))}
           </div>
-          {/* Mobile */}
-          <div className="block lg:hidden w-[calc(100vw-3rem)] overflow-hidden">
-            <div className="flex gap-10 animate-marquee">
-              {technologies.map(({ name, icon: Logo }, i) => (
-                <div key={i} className="flex items-center justify-center gap-2">
-                  <Logo className="flex items-center gap-3 shrink-0 w-[32px] h-[32px]" />
-                  <p className="text-primary-text">{name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <p className="text-xs lg:text-xl text-gray-400 leading-relaxed mt-4 lg:mt-0 text-right">
-            See more on my{" "}
+
+          {/* Mobile: resume link */}
+          <p className="text-xs text-muted-foreground text-right lg:hidden">
+            Full details on my{" "}
             <a
-              href="/Jean_Louis_Mosquera_Escobar_Frontend_Engineer.pdf"
+              href={resumeUrl}
               download
               className="text-blue-500 underline"
-              onClick={() => {
-                toast("Download started", {
-                  description: "Check your download folder",
-                });
-              }}
+              aria-label="Download full resume PDF"
             >
               resume
             </a>
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,39 +1,79 @@
 import { StaticImageData } from "next/image";
 import { ElementType } from "react";
 
-// Project related types
+// ─── Resume / Data Layer ───────────────────────────────────────────────────
+
+export interface PersonalInfo {
+  name: string;
+  firstName: string;
+  title: string;
+  location: string;
+  email: string;
+  bio: string;
+  resumeUrl: string;
+  socials: {
+    linkedin: string;
+    github: string;
+  };
+}
+
+export interface Experience {
+  id: string;
+  role: string;
+  company: string;
+  type: "full-time" | "freelance" | "contract" | "internship";
+  period: string;
+  description: string;
+  highlights: string[];
+  tech: string[];
+}
+
+export interface SkillCategory {
+  id: string;
+  label: string;
+  skills: string[];
+}
+
+export interface Education {
+  institution: string;
+  degree: string;
+  field: string;
+  year: string;
+}
+
+export interface Language {
+  name: string;
+  level: string;
+}
+
+// ─── Project ──────────────────────────────────────────────────────────────
+
 export interface Project {
   key: string;
   image: StaticImageData;
   title: string;
   description: string;
+  tech: string[];
   githubUrl: string;
   liveUrl: string;
 }
 
-// Technology related types
+// ─── Technology (icon map — UI concern only) ───────────────────────────────
+
 export interface Technology {
   name: string;
   icon: ElementType;
 }
 
-// Work experience types
-export interface WorkExperience {
-  icon: React.ReactNode;
-  title: string;
-  company: string;
-  period: string;
-  description: string;
-  tech: string[];
-}
+// ─── Navigation ───────────────────────────────────────────────────────────
 
-// Navigation types
 export interface NavLink {
   name: string;
   href: string;
 }
 
-// Contact form types
+// ─── Contact form ─────────────────────────────────────────────────────────
+
 export interface ContactFormData {
   name: string;
   email: string;
@@ -46,32 +86,23 @@ export interface ContactFormErrors {
   message?: string;
 }
 
-// API response type
+// ─── API ──────────────────────────────────────────────────────────────────
+
 export type ApiResponse<T = void> =
   | { success: true; data: T }
   | { success: false; error: string };
 
-// Theme types
+// ─── Misc ─────────────────────────────────────────────────────────────────
+
 export type Theme = "light" | "dark" | "system";
 
-// Section IDs for navigation
 export type SectionId =
-  | "hero"
+  | "home"
   | "about"
   | "work-experience"
   | "projects"
   | "contacts";
 
-// SEO and metadata types
-export interface SEOProps {
-  title?: string;
-  description?: string;
-  keywords?: string[];
-  ogImage?: string;
-  canonicalUrl?: string;
-}
-
-// Component props types
 export interface SectionWrapperProps {
   id: string;
   nextId?: string;

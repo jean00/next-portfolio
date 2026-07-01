@@ -1,113 +1,132 @@
 "use client";
 
 import SectionWrapper from "@/components/section-wrapper";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-} from "./ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselDots,
-  CarouselItem,
-} from "./ui/carousel";
 import { ExternalLink, Github } from "lucide-react";
 import { projects } from "@/data/projects";
 import Image from "next/image";
+import type { Project } from "@/types";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselDots,
+} from "./ui/carousel";
+
+interface ProjectCardProps {
+  project: Project;
+}
+
+const ProjectCard = ({ project }: ProjectCardProps) => (
+  <article
+    className="group flex flex-col rounded-xl border border-border/50 bg-card overflow-hidden
+                hover:border-border hover:shadow-lg hover:shadow-black/10
+                dark:hover:shadow-black/40 transition-all duration-300"
+    aria-labelledby={`project-${project.key}-title`}
+  >
+    {/* Gradient accent bar */}
+    <div
+      className="h-0.5 w-full bg-gradient-to-r from-blue-400 to-purple-500"
+      aria-hidden="true"
+    />
+
+    {/* Image */}
+    <div className="overflow-hidden h-28 sm:h-36 bg-muted">
+      <Image
+        src={project.image}
+        alt={`${project.title} screenshot`}
+        width={400}
+        height={144}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+    </div>
+
+    {/* Content */}
+    <div className="flex flex-col flex-1 p-4 gap-3">
+      <div className="flex-1">
+        <h3
+          id={`project-${project.key}-title`}
+          className="font-bold text-sm mb-1 text-foreground"
+        >
+          {project.title}
+        </h3>
+        <p className="text-xs text-muted-foreground leading-relaxed">
+          {project.description}
+        </p>
+      </div>
+
+      {/* Tech stack */}
+      <p
+        className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground/60"
+        aria-label="Technologies"
+      >
+        {project.tech.join(" · ")}
+      </p>
+
+      {/* Links */}
+      <div className="flex items-center gap-5 pt-2.5 border-t border-border/40">
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors focus:outline-2 focus:outline-primary focus:outline-offset-2 rounded"
+          aria-label={`View ${project.title} source code on GitHub`}
+        >
+          <Github size={12} aria-hidden="true" />
+          GitHub
+        </a>
+        <a
+          href={project.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors focus:outline-2 focus:outline-primary focus:outline-offset-2 rounded"
+          aria-label={`View ${project.title} live demo`}
+        >
+          <ExternalLink size={12} aria-hidden="true" />
+          Live Demo
+        </a>
+      </div>
+    </div>
+  </article>
+);
 
 const Projects = () => {
   return (
-    <>
-      <h2 className="text-4xl font-bold mb-4">
+    <div className="w-full max-w-4xl pt-8 sm:pt-16 pb-6 sm:pb-12 text-left">
+      <h2 className="text-4xl font-bold mb-6 sm:mb-10 text-center">
         My{" "}
         <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-          projects
+          Projects
         </span>
       </h2>
-      {/* Desktop */}
-      <div className="hidden lg:flex space-x-10 min-w-max">
+
+      {/* Desktop: 3-column grid */}
+      <ul
+        className="hidden lg:grid grid-cols-3 gap-5"
+        aria-label="Projects list"
+      >
         {projects.map((project) => (
-          <Card key={project.key} className="border-0 w-72 bg-card">
-            <CardContent>
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={300}
-                height={200}
-                className="w-full object-cover rounded-2xl"
-              />
-            </CardContent>
-            <CardHeader className="text-card-foreground text-sm h-full">
-              <CardTitle>{project.title}</CardTitle>
-              <CardDescription>{project.description}</CardDescription>
-            </CardHeader>
-            <CardFooter className="flex justify-between">
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary font-medium transition-all focus:text-primary focus:outline-2 focus:outline-primary focus:outline-offset-2 rounded"
-              >
-                <Github size={16} /> GitHub
-              </a>
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary font-medium transition-all focus:text-primary focus:outline-2 focus:outline-primary focus:outline-offset-2 rounded"
-              >
-                <ExternalLink size={16} /> Live Demo
-              </a>
-            </CardFooter>
-          </Card>
+          <li key={project.key}>
+            <ProjectCard project={project} />
+          </li>
         ))}
+      </ul>
+
+      {/* Mobile / tablet: Carousel with dots */}
+      <div className="lg:hidden relative pb-8">
+        <Carousel className="w-full" aria-label="Projects carousel">
+          <CarouselContent>
+            {projects.map((project) => (
+              <CarouselItem key={project.key} className="flex justify-center">
+                <div className="w-full max-w-sm">
+                  <ProjectCard project={project} />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselDots />
+        </Carousel>
       </div>
-      {/* Mobile */}
-      <Carousel className="lg:hidden w-full max-w-3xl mx-auto">
-        <CarouselContent>
-          {projects.map((project) => (
-            <CarouselItem key={project.key} className="flex justify-center">
-              <Card className="border-0 w-72 bg-card">
-                <CardContent>
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full object-cover rounded-2xl"
-                  />
-                </CardContent>
-                <CardHeader className="text-card-foreground text-sm">
-                  <CardTitle>{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-                <CardFooter className="flex justify-between">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary font-medium transition-all focus:text-primary focus:outline-2 focus:outline-primary focus:outline-offset-2 rounded"
-                  >
-                    <Github size={16} /> GitHub
-                  </a>
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary font-medium transition-all focus:text-primary focus:outline-2 focus:outline-primary focus:outline-offset-2 rounded"
-                  >
-                    <ExternalLink size={16} /> Live Demo
-                  </a>
-                </CardFooter>
-              </Card>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselDots className="bottom-[-1.125rem]" />
-      </Carousel>
-    </>
+    </div>
   );
 };
 

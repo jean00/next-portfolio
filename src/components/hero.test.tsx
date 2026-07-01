@@ -22,13 +22,13 @@ describe("Hero", () => {
   it("renders the 'Frontend developer' subtitle", () => {
     render(<Hero />);
     expect(
-      screen.getByRole("heading", { name: /frontend developer/i }),
+      screen.getByRole("heading", { name: /frontend software engineer/i }),
     ).toBeInTheDocument();
   });
 
   it("renders all main tech badges", () => {
     render(<Hero />);
-    ["React", "TypeScript", "Next.js", "Tailwind CSS"].forEach((tech) => {
+    ["React", "TypeScript", "Next.js", "Micro Front-Ends"].forEach((tech) => {
       expect(screen.getByText(tech)).toBeInTheDocument();
     });
   });

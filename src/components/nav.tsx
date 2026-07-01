@@ -4,17 +4,7 @@ import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { Moon, Sun } from "lucide-react";
 import MobileMenu from "./mobile-menu";
-
-const navLinks = [
-  { name: "Home", href: "#" },
-  { name: "About", href: "#about" },
-  {
-    name: "Experiences",
-    href: "#work-experience",
-  },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contacts" },
-];
+import { navLinks, personalInfo } from "@/data/resume";
 
 const Nav = () => {
   const { setTheme, theme } = useTheme();
@@ -25,9 +15,10 @@ const Nav = () => {
       role="navigation"
       aria-label="Main navigation"
     >
-      <h1 className="text-sm font-bold">
-        Jean <span className="font-normal">/ portfolio</span>
-      </h1>
+      <p className="text-sm font-bold">
+        {personalInfo.firstName}{" "}
+        <span className="font-normal">/ portfolio</span>
+      </p>
       {/* Desktop */}
       <div className="hidden md:flex gap-6 text-sm font-bold items-center">
         {navLinks.map((el) => (

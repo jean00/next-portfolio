@@ -4,22 +4,27 @@ import { toast } from "sonner";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import SectionWrapper from "@/components/section-wrapper";
-
-const mainTech = ["React", "TypeScript", "Next.js", "Tailwind CSS"];
+import { heroTech, personalInfo } from "@/data/resume";
 
 const Hero = () => {
+  const { firstName, title, resumeUrl } = personalInfo;
+
   return (
-    <>
+    <div className="w-full max-w-2xl px-6 flex flex-col items-center">
       <h1 className="text-5xl sm:text-6xl font-bold">
         Hi, I&apos;m{" "}
         <span className="bg-gradient-to-b from-[#000000] to-[#00DDFF] bg-clip-text text-transparent">
-          Jean
+          {firstName}
         </span>
       </h1>
-      <h2 className="text-3xl sm:text-5xl mb-6">Frontend developer</h2>
-      <div className="flex gap-3 sm:gap-6 mb-16">
-        {mainTech.map((tech) => (
-          <Badge key={tech} variant="tech">
+      <h2 className="text-xl sm:text-3xl lg:text-5xl mb-4 sm:mb-6">{title}</h2>
+      <div
+        className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-12 sm:mb-16"
+        role="list"
+        aria-label="Core technologies"
+      >
+        {heroTech.map((tech) => (
+          <Badge key={tech} variant="tech" role="listitem">
             {tech}
           </Badge>
         ))}
@@ -33,11 +38,11 @@ const Hero = () => {
           });
         }}
       >
-        <a href="/Jean_Louis_Mosquera_Escobar_Frontend_Engineer.pdf" download>
+        <a href={resumeUrl} download aria-label="Download CV as PDF">
           Download CV
         </a>
       </Button>
-    </>
+    </div>
   );
 };
 
